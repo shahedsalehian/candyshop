@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20170825190323) do
 
   create_table "candies", force: :cascade do |t|
     t.string "candy_name"
+    t.boolean "is_shelved", default: false
     t.integer "shelf_id"
     t.integer "shop_id"
     t.datetime "created_at", null: false

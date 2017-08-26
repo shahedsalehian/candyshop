@@ -1,4 +1,4 @@
 class Shelf < ApplicationRecord
   belongs_to :shop
-  has_many :candies, :dependent => :delete_all
+  has_many :candies, through: :shop
 end
