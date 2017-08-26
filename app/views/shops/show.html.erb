@@ -1,0 +1,17 @@
+<p>Shop Name: <%= @shop.shop_name %></p>
+<p>Number of Shelves: <%= @shop.shelves.size %>
+   <% if @shop.shelves.size == 1 %>
+    shelf
+   <% else %>
+    shelves
+   <% end %>
+</p>
+
+<ul>
+  <% @shop.shelves.each do |s| %>
+    <li> <%= link_to s.shelf_name, shop_shelf_path(@shop, s) %> <%= link_to "Delete", shop_shelf_path(@shop, s), method: :delete %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create new Shelf for this shop", new_shop_shelf_path(@shop) %> <br>
+<%= link_to "All Shops", shops_path %>

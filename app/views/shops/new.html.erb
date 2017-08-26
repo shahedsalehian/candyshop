@@ -1,0 +1,15 @@
+<%= form_for(@shop, html: {multipart: true}) do |f| %>
+<ul>
+  <% @shop.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <%end%>
+</ul>
+<div class="form-group">
+<p>
+  <%= f.label :shop_name %><br>
+  <%= f.text_field :shop_name, :class => 'form-control title' %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

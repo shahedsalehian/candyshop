@@ -1,0 +1,10 @@
+<p>Shelf Name: <%= @shelf.shelf_name %></p>
+<p>This shelf has the following candy: </p>
+<ul>
+  <% @shelf.candies.each do |c| %>
+  <li>
+    <%= c.candy_name %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "Back to Shop", shop_path(params[:shop_id]) %>
