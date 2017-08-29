@@ -1,6 +1,6 @@
 <h1>Shelf Candy</h1>
 
-<%= form_for(@candy, url: shop_candies_path ,html: {multipart: true}) do |f| %>
+<%= form_for(@candy, url: shop_candy_path ,html: {multipart: true}) do |f| %>
 	<ul>
 	  <% @candy.errors.full_messages.each do |error| %>
 	    <li><%= error %></li>
@@ -9,11 +9,12 @@
 	<div class="form-group">
 	<p>
 	  <p>Check box to shelf candy</p>
-	  <%= f.check_box :is_shelved, {}, true, false%>
+	  <%= f.check_box :is_shelved%>
 	</p>
 	<p>
-	  Select a shelf
-	</p>
+	 <% options = options_from_collection_for_select(@shelves, :id, :shelf_name) %>
+	  <%= f.collection_select :shelf_id, @shelves,:id,:shelf_name, include_blank: true %>
+   	</p>
 	<p>
 	  <%= f.submit %>
 	</p>

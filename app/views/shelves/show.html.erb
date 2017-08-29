@@ -2,7 +2,7 @@
 <p>This shelf has the following candy: </p>
 <ul>
   <% @shelf.candies.each do |c| %>
-  	<% if c.is_shelved == true %>
+  	<% if c.is_shelved == true && c.shelf_id == @shelf.id %>
 			  <li>
 			    <%= c.candy_name %>
 			  </li>
