@@ -1,5 +1,6 @@
-<h1>Shop Name: <%= @shop.shop_name %></h1>
-<p>(<%= @shop.shelves.size %>)
+<h1><%= @shop.shop_name %></h1>
+<br>
+<p><%= @shop.shelves.size %>	
    <% if @shop.shelves.size == 1 %>
     Shelf
    <% else %>
@@ -7,30 +8,36 @@
    <% end %>
 </p>
 
-<ul>
+<table>
   <% @shop.shelves.each do |s| %>
-    <li> <%= link_to s.shelf_name, shop_shelf_path(@shop, s) %>&nbsp&nbsp&nbsp&nbsp&nbsp<%= link_to "Delete", shop_shelf_path(@shop, s), method: :delete %></li>
+    <tr>
+     <td><%= link_to s.shelf_name, shop_shelf_path(@shop, s) %></td><td><%= link_to "Delete", shop_shelf_path(@shop, s), method: :delete, class: "btn btn-danger"%></td>
+    </tr>
   <% end %>
-</ul>
-
+</table>
+<br>
 <p>This Shop has these unshelved candies: </p>
-<ul>
+<table>
 	<% @shop.candies.each do |c| %>
 		<% if c.is_shelved == false %>
-			<li> <%= link_to c.candy_name, edit_shop_candy_path(@shop, c) %> </li>
+			<tr>
+				<td> <%= link_to c.candy_name, edit_shop_candy_path(@shop, c) %> </td>
+			</tr>
 		<% end %>
 	<% end %>
-</ul>
-
+</table>
+<br>
 <p>This Shop has all these candies on its shelves: </p>
-<ul>
+<table>
 	<% @shop.candies.each do |c| %>
 		<% if c.is_shelved == true %>
-			<li> <%= link_to c.candy_name, edit_shop_candy_path(@shop, c) %></li>
+			<tr>
+			 	<td><%= link_to c.candy_name, edit_shop_candy_path(@shop, c) %></td>
+		 	</tr>
 		<% end %>			
 	<% end %>
-</ul>
-
-<%= link_to "Add new Candy to the Shop", new_shop_candy_path(@shop) %> <br>
-<%= link_to "Create new Shelf for this shop", new_shop_shelf_path(@shop) %> <br>
-<%= link_to "All Shops", shops_path %>
+</table>
+<br>
+<%= link_to "Add Candy", new_shop_candy_path(@shop), class: "btn btn-success" %>
+<%= link_to "Add Shelf", new_shop_shelf_path(@shop), class: "btn btn-success" %>
+<%= link_to "All Shops", shops_path, class: "btn btn-primary"  %>

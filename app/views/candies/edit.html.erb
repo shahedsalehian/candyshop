@@ -1,4 +1,4 @@
-<h1>Shelf Candy</h1>
+<h1>Shelf/Unshelf <%= @candy.candy_name %></h1>
 
 <%= form_for(@candy, url: shop_candy_path ,html: {multipart: true}) do |f| %>
 	<ul>
@@ -8,15 +8,15 @@
 	</ul>
 	<div class="form-group">
 	<p>
-	  <p>Check box to shelf candy</p>
-	  <%= f.check_box :is_shelved%>
+	  Shelf Candy <%= f.check_box :is_shelved %>
 	</p>
 	<p>
-	 <% options = options_from_collection_for_select(@shelves, :id, :shelf_name) %>
-	  <%= f.collection_select :shelf_id, @shelves,:id,:shelf_name, include_blank: true %>
+		Assigned Shelf
+		<% options = options_from_collection_for_select(@shelves, :id, :shelf_name) %>
+	  	<%= f.collection_select :shelf_id, @shelves,:id,:shelf_name, include_blank: true %>
    	</p>
 	<p>
-	  <%= f.submit %>
+	  <%= f.submit "Update Candy", :class => 'btn btn-success' %>
 	</p>
 	</div>
 <% end %>
