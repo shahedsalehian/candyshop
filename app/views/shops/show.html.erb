@@ -1,43 +1,44 @@
 <h1><%= @shop.shop_name %></h1>
 <br>
-<p><%= @shop.shelves.size %>	
+<h4><%= @shop.shelves.size %>	
    <% if @shop.shelves.size == 1 %>
     Shelf
    <% else %>
     Shelves
    <% end %>
-</p>
+</h4>
 
 <table>
   <% @shop.shelves.each do |s| %>
     <tr>
-     <td><%= link_to s.shelf_name, shop_shelf_path(@shop, s) %></td><td><%= link_to "Delete", shop_shelf_path(@shop, s), method: :delete, class: "btn btn-danger"%></td>
+     <td><%= link_to s.shelf_name, shop_shelf_path(@shop, s) %></td><td><%= link_to "Delete", shop_shelf_path(@shop, s), method: :delete, class: "btn btn-sm btn-danger"%></td>
     </tr>
   <% end %>
 </table>
 <br>
-<p>This Shop has these unshelved candies: </p>
+<h4>Unshelved Candies: </h4>
 <table>
 	<% @shop.candies.each do |c| %>
 		<% if c.is_shelved == false %>
 			<tr>
-				<td> <%= link_to c.candy_name, edit_shop_candy_path(@shop, c) %> </td>
+				<td> <%= link_to c.candy_name, edit_shop_candy_path(@shop, c) %> </td><td><%= link_to "Delete", shop_candy_path(@shop, c), method: :delete, class: "btn btn-sm btn-danger"%>
+		 	</tr>
 			</tr>
 		<% end %>
 	<% end %>
 </table>
 <br>
-<p>This Shop has all these candies on its shelves: </p>
+<h4>Shelved Candies: </h4>
 <table>
 	<% @shop.candies.each do |c| %>
 		<% if c.is_shelved == true %>
 			<tr>
-			 	<td><%= link_to c.candy_name, edit_shop_candy_path(@shop, c) %></td>
+			 	<td><%= link_to c.candy_name, edit_shop_candy_path(@shop, c) %></td><td><%= link_to "Delete", shop_candy_path(@shop, c), method: :delete, class: "btn btn-sm btn-danger"%>
 		 	</tr>
 		<% end %>			
 	<% end %>
 </table>
 <br>
-<%= link_to "Add Candy", new_shop_candy_path(@shop), class: "btn btn-success" %>
-<%= link_to "Add Shelf", new_shop_shelf_path(@shop), class: "btn btn-success" %>
-<%= link_to "All Shops", shops_path, class: "btn btn-primary"  %>
+<%= link_to "Add Candy", new_shop_candy_path(@shop), class: "btn btn-sm btn-success" %>
+<%= link_to "Add Shelf", new_shop_shelf_path(@shop), class: "btn btn-sm btn-success" %>
+<%= link_to "All Shops", shops_path, class: "btn btn-sm btn-primary"  %>

@@ -1,5 +1,12 @@
 <h1>Shelf Name: <%= @shelf.shelf_name %></h1>
-<p>This shelf has <%= @shelf.candies.size %> candies: </p>
+<p>This shelf has <%= @shelf.candies.size %> 
+<% if @shelf.candies.size == 1 %>
+	candy:	 
+<% else %>
+	candies:
+<% end %>
+
+</p>
 <ul>
   <% @shelf.candies.each do |c| %>
   	<% if c.is_shelved == true && c.shelf_id == @shelf.id %>
@@ -9,4 +16,5 @@
     <% end %>
   <% end %>
 </ul>
-<%= link_to "Back to Shop", shop_path(params[:shop_id]) %>
+<br>
+<%= link_to "Back to Shop", shop_path(params[:shop_id]), :class => "btn btn-sm btn-danger" %>

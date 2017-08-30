@@ -3,9 +3,9 @@
 <table>
   <% @shops.each do |shop| %>
   <tr>
-   <td><%=link_to shop.shop_name, shop_path(shop) %></td><td><%= link_to "Delete", shop_path(shop), method: :delete, class: "btn btn-danger" %></td> 
+   <td><%=link_to shop.shop_name, shop_path(shop) %></td><td></td><td><%= link_to "Delete", shop_path(shop), method: :delete, class: "btn btn-sm btn-danger" %></td> 
   </tr>
   <% end %>
 </table>
-
-<%= link_to "New Shop", new_shop_path %>
+<br>
+<%= link_to "Add Shop", new_shop_path, class: "btn btn-sm btn-success" %>

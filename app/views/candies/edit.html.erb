@@ -12,11 +12,11 @@
 	</p>
 	<p>
 		Assigned Shelf
-		<% options = options_from_collection_for_select(@shelves, :id, :shelf_name) %>
 	  	<%= f.collection_select :shelf_id, @shelves,:id,:shelf_name, include_blank: true %>
    	</p>
 	<p>
-	  <%= f.submit "Update Candy", :class => 'btn btn-success' %>
+	  <%= f.submit "Update Candy", :class => 'btn btn-sm btn-success' %>
+	  <%= link_to "Back to Shop", shop_path(params[:shop_id]), :Class => 'btn btn-sm btn-danger' %>
 	</p>
 	</div>
 <% end %>

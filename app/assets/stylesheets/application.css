@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+table, td, th{
+	border-spacing: 10px;
+	padding: 20px;
+	border-bottom: 1px solid #ddd;
+	width: 100%;
+}
+
+
+.jumbotron{
+	margin-top: 0;
+	margin-bottom: 0;
+	}

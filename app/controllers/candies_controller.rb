@@ -22,4 +22,10 @@ include CandiesHelper
 		@candy.update(candy_params)
 		redirect_to shop_path(params[:shop_id])
 	end
+
+	def destroy
+		@candy = Shop.find(params[:shop_id]).candies.find(params[:id])
+		@candy.destroy
+		redirect_to shop_path(params[:shop_id])
+	end	
 end
