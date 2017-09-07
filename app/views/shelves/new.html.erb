@@ -2,11 +2,6 @@
 
 
 <%= form_for(@shelf, url: shop_shelves_path ,html: {multipart: true}) do |f| %>
-<ul>
-  <% @shelf.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <%end%>
-</ul>
 <div class="form-group">
 	<p>
 	  <%= f.label :shelf_name %><br>

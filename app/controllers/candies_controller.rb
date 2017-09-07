@@ -19,7 +19,7 @@ include CandiesHelper
 
 	def update
 		@candy = Shop.find(params[:shop_id]).candies.find(params[:id])
-		@candy.update(candy_params)
+	  	@candy.update(candy_params)
 		redirect_to shop_path(params[:shop_id])
 	end
 

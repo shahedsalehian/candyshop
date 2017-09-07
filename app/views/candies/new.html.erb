@@ -2,11 +2,6 @@
 
 
 <%= form_for(@candy, url: shop_candies_path ,html: {multipart: true}) do |f| %>
-	<ul>
-	  <% @candy.errors.full_messages.each do |error| %>
-	    <li><%= error %></li>
-	  <%end%>
-	</ul>
 	<div class="form-group">
 		<p>
 		  <%= f.label :candy_name %><br>
