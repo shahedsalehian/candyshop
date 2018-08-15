@@ -1,6 +1,6 @@
 <h1>Shelf/Unshelf <%= @candy.candy_name %></h1>
 
-<%= form_for(@candy, url: shop_candy_path) do |f| %>
+<%= form_for(@candy, url: shop_candy_path}) do |f| %>
 	<div class="form-group">
 	<p>
 	  Shelf Candy <%= f.check_box :is_shelved %>
